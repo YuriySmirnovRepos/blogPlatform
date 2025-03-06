@@ -181,6 +181,6 @@ const SignUpFormContent = React.forwardRef<
 
 SignUpFormContent.displayName = 'SignUpFormContent';
 
-export const SignUpForm = withForm<SignUpFormProps & { title: string }>(
+export const SignUpForm = withForm<SignUpFormData, SignUpFormProps>(
   SignUpFormContent,
 );

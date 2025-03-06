@@ -11,9 +11,7 @@ export const likeApi = blogApi.injectEndpoints({
       }),
       transformResponse: (response: { article: ArticleData }) =>
         response.article,
-      invalidatesTags: (result, error, slug) => [
-        { type: TagTypes.Articles, id: slug },
-      ],
+      invalidatesTags: (_, __, slug) => [{ type: TagTypes.Articles, id: slug }],
     }),
     unfavoriteArticle: builder.mutation({
       query: (slug: string) => ({
@@ -22,9 +20,7 @@ export const likeApi = blogApi.injectEndpoints({
       }),
       transformResponse: (response: { article: ArticleData }) =>
         response.article,
-      invalidatesTags: (result, error, slug) => [
-        { type: TagTypes.Articles, id: slug },
-      ],
+      invalidatesTags: (_, __, slug) => [{ type: TagTypes.Articles, id: slug }],
     }),
   }),
 });

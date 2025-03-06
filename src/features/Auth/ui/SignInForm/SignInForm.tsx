@@ -9,7 +9,7 @@ import { useLoginMutation } from '../../api/authSliceApi';
 import { useAppDispatch } from '@shared/hooks/redux';
 import { setCurrentUser, CurrentUser } from '@entities/User';
 
-interface SignInFormData extends BaseFormData {
+export interface SignInFormData extends BaseFormData {
   email: string;
   password: string;
 }
@@ -155,4 +155,6 @@ const SignInFormContent = React.forwardRef<
 
 SignInFormContent.displayName = 'SignInFormContent';
 
-export const SignInForm = withForm<SignInFormProps>(SignInFormContent);
+export const SignInForm = withForm<SignInFormData, SignInFormProps>(
+  SignInFormContent,
+);

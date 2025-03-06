@@ -44,7 +44,7 @@ const modifyArticleApi = blogApi.injectEndpoints({
       }),
       // Трансформация ответа для получения только данных статьи
       transformResponse: (response: ArticleResponse) => response.article,
-      invalidatesTags: (result, error, { slug }) => [
+      invalidatesTags: (_, __, { slug }) => [
         { type: TagTypes.Articles, id: slug },
         { type: TagTypes.Articles, id: 'LIST' },
       ],
@@ -54,7 +54,7 @@ const modifyArticleApi = blogApi.injectEndpoints({
     getArticleBySlug: builder.query<ArticleData, string>({
       query: (slug) => `/articles/${slug}`,
       transformResponse: (response: ArticleResponse) => response.article,
-      providesTags: (result, error, slug) =>
+      providesTags: (result, _, slug) =>
         result ? [{ type: TagTypes.Articles, id: slug }] : [],
     }),
 
@@ -64,7 +64,7 @@ const modifyArticleApi = blogApi.injectEndpoints({
         url: `/articles/${slug}`,
         method: 'DELETE',
       }),
-      invalidatesTags: (result, error, slug) => [
+      invalidatesTags: (_, __, slug) => [
         { type: TagTypes.Articles, id: slug },
         { type: TagTypes.Articles, id: 'LIST' },
       ],
