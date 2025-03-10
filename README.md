@@ -8,7 +8,7 @@
 
 ## 🌐 Демо
 
-[Открыть Blog Platform на Vercel](https://blog-platform-gdrmsl75w-toms-projects-25386f50.vercel.app/)
+[Открыть Blog Platform на Vercel](https://blog-platform-woad.vercel.app/)
 
 ## 🛠️ Технологический стек
 
